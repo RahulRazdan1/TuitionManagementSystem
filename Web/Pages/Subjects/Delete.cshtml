@@ -1,0 +1,42 @@
+﻿@page
+@model Web.Pages.Subjects.DeleteModel
+@{
+}
+
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="me-auto">
+            <h4 class="page-title">Subjects</h4>
+            <div class="d-inline-block align-items-center">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item" aria-current="page">Subjects</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="Input.Id" type="hidden" />
+                        <div class="form-group">
+                            <label>Are you sure to delete this item?</label>
+                            <input asp-for="Input.IsActive" type="checkbox" class="form-control" />
+                            <span asp-validation-for="Input.IsActive" class="text-danger"></span>
+                        </div>
+                        <button id="registerDelete" asp-page-handler="Delete" type="submit" class="btn btn-danger mt-10">Delete</button>
+                        <a href="##" onClick="history.go(-1); return false;" class="btn btn-danger mt-10">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

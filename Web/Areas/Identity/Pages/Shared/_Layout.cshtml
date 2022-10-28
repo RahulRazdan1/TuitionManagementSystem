@@ -1,0 +1,48 @@
+﻿@using Web.Common
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Eagle Tutoring</title>
+    <link rel="stylesheet" href="../css/tms/tms_css.css">
+    <link rel="stylesheet" href="../css/tms/style.css">
+    <link rel="stylesheet" href="../css/tms/skin_color.css">
+
+    <style>
+        body {
+            background-image: url('../tmsImages/bg-1.jpg');
+        }
+    </style>
+</head>
+<body class="hold-transition theme-primary bg-img">
+    <div class="container h-p100">
+        <div class="row align-items-center justify-content-md-center h-p100">
+
+            <div class="col-12">
+                <div class="row justify-content-center g-0">
+
+                    @if (TempData.TryGetValue(AppConstants.SuccessMessageKey, out object successMessage))
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <span class="text-success">@successMessage.ToString()</span>
+                            </div>
+                        </div>
+                    }
+
+                    @RenderBody()
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- TMS JS 1 -->
+    <script src="../lib/jquery/dist/jquery.js"></script>
+    <script src="../js/tms/tms.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

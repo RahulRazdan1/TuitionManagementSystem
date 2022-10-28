@@ -1,0 +1,68 @@
+﻿@page
+@using Web.Common
+@using Web.Extensions
+@model Web.Pages.Admin.OtherActivityAddModel
+@{
+}
+
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="me-auto">
+            <h4 class="page-title">Other Activity</h4>
+            <div class="d-inline-block align-items-center">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item" aria-current="page">Other Activity</li>
+                        <li class="breadcrumb-item active" aria-current="page">Add New Record</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-body">
+                    <form class="form" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label asp-for="Input.Users" class="form-label"></label>
+                                <select asp-for="Input.UserId" asp-items="@Model.Users.ToSelectItems()"
+                                        class="form-control">
+                                    <option value="">Select User</option>
+                                </select>
+                            </div>
+                             <div class="form-group">
+                                <label asp-for="Input.Subject" class="form-label"></label>
+                                <select asp-for="Input.SubjectId" asp-items="@Model.Subjects.ToSelectItems()"
+                                        class="form-control">
+                                    <option value="">Select Subjects</option>
+                                </select>
+                            </div>     
+                            <div class="form-group">
+                                <label asp-for="Input.Hours" class="form-label"></label>
+                                <input asp-for="Input.Hours" class="form-control" aria-required="true" placeholder="Name" />
+                                <span asp-validation-for="Input.Hours" class="text-danger"></span>
+                            </div>                                                  
+                            <div class="form-group">
+                               <input type="checkbox" asp-for="Input.IsActive"  />
+                                <label asp-for="Input.IsActive" class="form-label"></label>
+                                @* <input asp-for="Input.IsActive" type="checkbox" class="form-control" />
+                                <span asp-validation-for="Input.IsActive" class="text-danger"></span>*@
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button id="registerSubmit" type="submit" class="btn btn-danger mt-10">Add</button>
+                             <a href="##" onClick="history.go(-1); return false;" class="btn btn-danger mt-10">Cancel</a> 
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

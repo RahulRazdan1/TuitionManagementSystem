@@ -1,0 +1,46 @@
+﻿@page
+@model Web.Pages.Tutor.IndexModel
+@{
+}
+<style>
+    input {
+        border: none !important;
+    }
+</style>
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="me-auto">
+            <h4 class="page-title">Tutor Dashboard</h4>
+        </div>
+    </div>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="d-flex justify-content-between">
+                        <h2 class="my-0 fw-600 text-info">
+                            <input type="text" asp-for="Input.TutorAcceptedSlotCount" class="my-0 fw-600 text-info" aria-required="true" readonly="readonly" width="50" />
+                        </h2>
+                        <div class="w-40 h-40 bg-info rounded-circle text-center fs-24 l-h-40"><i class="fa fa-line-chart"></i></div>
+                    </div>
+                    <p class="fs-18 mt-10"><a href="/Tutor/AcceptedSlot">Accepted Slot</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="d-flex justify-content-between">
+                        <h2 class="my-0 fw-600 text-danger">
+                            <input type="text" asp-for="Input.OpenSlotCount" class="my-0 fw-600 text-danger" aria-required="true" readonly="readonly" width="50"  />
+                        </h2>
+                        <div class="w-40 h-40 bg-danger rounded-circle text-center fs-24 l-h-40"><i class="fa fa-drivers-license-o"></i></div>
+                    </div>
+                    <p class="fs-18 mt-10"><a href="/Tutor/OpenSlot">Open Slot</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

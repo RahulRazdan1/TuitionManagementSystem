@@ -1,0 +1,64 @@
+﻿@page
+@using Web.Common
+@model ResendEmailConfirmationModel
+@{
+    ViewData[AppConstants.TitleKey] = "Resend email confirmation";
+}
+<div class="container h-p100">
+    <div class="row align-items-center justify-content-md-center h-p100">
+        <div class="col-12">
+            <div class="row justify-content-center g-0">
+                <div class="col-lg-5 col-md-5 col-12">
+                    <div class="bg-white rounded10 shadow-lg">
+
+                        <div class="content-top-agile p-20 pb-0">
+                            <a href="/"> <img id="logo-default" src="/tmsImages/logo.png"></a><br><br>
+                        </div>
+                        <div class="p-40">
+                           <h3>Pending Email confirmation</h3>
+                            <hr />
+                            <p>Your email is not confirmed. To confirm yor email login to your email account and click on link to confirm.</p>
+                            <p>If you did not recevied any confirmation email you can generate one here.</p>
+                           
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form method="post" class="form">
+                                        <div asp-validation-summary="All" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <label asp-for="Input.Email" class="form-label"></label>
+                                            <input asp-for="Input.Email" class="form-control" />
+                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        </div>
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                           <button type="submit" class="btn btn-primary mt-10 me-30">Resend</button>
+                                           <button type="submit" asp-area="Identity" asp-page="Login" class="btn btn-outline-warning mt-10">Cancel</button>
+                                        </div>
+                                      </div>
+                                       
+                                    </form>
+                                </div>
+                            </div>
+                            @if (Model.DisplayVerificationLink)
+                            {
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        For testing purpose click<a href="@Model.VerificationLink">Here</a> to verfiy your email.
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="mt-20 text-white">© 2022 - 23  Eagle Tutoring - by Rahul Razdan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

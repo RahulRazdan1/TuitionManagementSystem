@@ -1,0 +1,39 @@
+﻿@page
+@using Web.Common
+@model ConfirmEmailModel
+@{
+    ViewData[AppConstants.SuccessMessageKey] = "Confirm email";
+}
+<div class="container h-p100">
+    <div class="row align-items-center justify-content-md-center h-p100">
+        <div class="col-12">
+            <div class="row justify-content-center g-0">
+                <div class="col-lg-5 col-md-5 col-12">
+                    <div class="bg-white rounded10 shadow-lg">
+                        <div class="content-top-agile p-20 pb-0">
+                            <a href="/"> <img id="logo-default" src="/tmsImages/logo.png"></a><br><br>
+                        </div>
+                        <div class="p-40">
+                            <h3>Email Confirmation</h3>
+                            @if (Model.IsEmailConfirmed)
+                            {
+                                <p>Your email has been confirmed. <a asp-area="Identity" asp-page="/Login">Click here to login</a></p>
+                            }
+                            else
+                            {
+                                <p class="text-danger">
+                                    We are unable to confirm your email. <a asp-area="Identity" asp-page="/ResendEmailConfirmation" asp-route-email="@Model.Email">Click here </a> to Generate new verification link
+                                </p>
+                            }
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="mt-20 text-white">© 2022 - 23  Eagle Tutoring - by Rahul Razdan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

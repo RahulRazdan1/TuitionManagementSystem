@@ -1,0 +1,66 @@
+﻿@using Web.Common
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LMS</title>
+    <link rel="stylesheet" href="~/shipAdmin/main/css/vendors_css.css">
+    <link rel="stylesheet" href="~/shipAdmin/main/css/style.css">
+    <link rel="stylesheet" href="~/shipAdmin/main/css/skin_color.css">
+
+    <style>
+        body {
+            background-image: url('/shipAdmin/images/auth-bg/bg-1.jpg');
+        }
+    </style>
+</head>
+<body class="hold-transition light-skin sidebar-mini theme-primary fixed">
+    
+<div class="wrapper">
+ 
+    nitin
+    <div class="container h-p100">
+        <div class="row align-items-center justify-content-md-center h-p100">
+
+            <div class="col-12">
+                <div class="row justify-content-center g-0">
+                  
+                                @if (TempData.TryGetValue(AppConstants.SuccessMessageKey, out object successMessage))
+                                {
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="text-success">@successMessage.ToString()</span>
+                                        </div>
+                                    </div>
+                                }
+
+                                
+                          
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+</div>
+    <!-- Vendor JS -->
+    <script src="~/shipAdmin/main/js/vendors.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+      
+	<script src="~/shipAdmin/main/js/pages/chat-popup.js"></script>
+    <script src="~/shipAdmin/assets/icons/feather-icons/feather.min.js"></script>	
+    <script src="~/shipAdmin/assets/vendor_components/jquery-steps-master/build/jquery.steps.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/shipAdmin/assets/vendor_components/sweetalert/sweetalert.min.js"></script>
+	
+	<!-- Deposito Admin App -->
+	<script src="~/shipAdmin/main/js/template.js"></script>
+	
+    <script src="~/shipAdmin/main/js/pages/steps.js"></script>
+	@*
+    @await RenderSectionAsync("Scripts", required: false)*@
+</body>
+</html>

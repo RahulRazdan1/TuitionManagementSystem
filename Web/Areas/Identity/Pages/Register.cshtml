@@ -1,0 +1,84 @@
+﻿@page
+@using Web.Common
+@model RegisterModel
+@{
+    ViewData[AppConstants.TitleKey] = "Registration";
+}
+
+<div class="col-lg-12 col-md-12 col-12">
+    <div class="bg-white rounded10 shadow-lg">
+
+        <div class="content-top-agile p-20 pb-0">
+            <a href="/"> <img id="logo-default" src="/tmsImages/logo.png" /></a><br /><br />
+            <p class="mb-0">@ViewData[AppConstants.TitleKey] to continue to Eagle Tutoring.</p>
+        </div>
+        <div class="p-40">
+            <div class="box">
+                <form id="registerForm" method="post" class="form">
+                    <div class="box-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label asp-for="Input.UserTypeId" class="form-label"></label>
+                                        <select id="cities" asp-for="Input.UserTypeId"
+                                                asp-items="@Model.UserTypes.ToSelectItems()"
+                                                class="form-control">
+                                            <option value="">Select</option>
+                                        </select>
+                                        <span asp-validation-for="Input.UserTypeId" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Input.Name" class="form-label"></label>
+                                        <input asp-for="Input.Name" class="form-control" placeholder="Name" />
+                                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Input.ContactNumber" class="form-label"></label>
+                                        <input asp-for="Input.ContactNumber" class="form-control" placeholder="Mobile #" />
+                                        <span asp-validation-for="Input.ContactNumber" class="text-danger"></span>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label asp-for="Input.Email" class="form-label"></label>
+                                        <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label asp-for="Input.Password" class="form-label"></label>
+                                        <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Input.ConfirmPassword" class="form-label"></label>
+                                        <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Retype Password" />
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary me-30">
+                            <i class="ti-save-alt"></i> Register
+                        </button>
+                        @*<a asp-area="Identity" asp-page="/login" class="btn btn-outline-warning">
+                            <i class="ti-close"></i> Cancel
+                        </a>*@
+                        <a href='javascript:history.go(-1)' class="btn btn-outline-warning"><i class="ti-close"></i> Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_FormScriptsPartial" />
+    <script src="~/js/pages/registercarrier.js"></script>
+}

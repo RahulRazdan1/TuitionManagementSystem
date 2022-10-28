@@ -1,0 +1,96 @@
+﻿@page
+@using Web.Common
+@using Web.Extensions
+@model Web.Pages.Tutee.AddModel
+@{
+}
+
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="me-auto">
+            <h4 class="page-title">SlotRequest</h4>
+            <div class="d-inline-block align-items-center">
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+                        <li class="breadcrumb-item" aria-current="page">SlotRequest</li>
+                        <li class="breadcrumb-item active" aria-current="page">Add New Record</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-body">
+                    <form class="form" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label asp-for="Input.Subject" class="form-label"></label>
+                                <select id="subjects" asp-for="Input.SubjectId" asp-items="@Model.Subjects.ToSelectItems()" class="form-control">
+                                    <option value="">Select</option>
+                                </select>
+                                <span asp-validation-for="Input.SubjectId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.Course" class="form-label"></label>
+                                <select id="courses" asp-for="Input.CourseId" asp-items="@Model.Courses.ToSelectItems()" class="form-control">
+                                    <option value="">Select</option>
+                                </select>
+                                <span asp-validation-for="Input.CourseId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.Topic" class="form-label"></label>
+                                <input asp-for="Input.Topic" class="form-control" aria-required="true" placeholder="Topic" />
+                                <span asp-validation-for="Input.Topic" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.Date" class="form-label"></label>
+                                <input asp-for="Input.Date" type="date" class="form-control" aria-required="true" placeholder="Date"
+                                       value="new Date()" asp-text="Input.Date"/>
+                                <span asp-validation-for="Input.Date" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.SlotTime1" class="form-label"></label>
+                                <select id="courses" asp-for="Input.SlotTime1" asp-items="@Model.SlotTimes.ToSelectItems()" class="form-control">
+                                    <option value="">Select Slot Time1</option>
+                                </select>
+                                <span asp-validation-for="Input.SlotTime1" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.SlotTime2" class="form-label"></label>
+                                <select id="courses" asp-for="Input.SlotTime2" asp-items="@Model.SlotTimes.ToSelectItems()" class="form-control">
+                                    <option value="">Select Slot Time2</option>
+                                </select>
+                                <label class="form-label">if the previous time is unavailable for tutors</label>                                
+                                <span asp-validation-for="Input.SlotTime2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Input.SlotTime3" class="form-label"></label>
+                                <select id="courses" asp-for="Input.SlotTime3" asp-items="@Model.SlotTimes.ToSelectItems()" class="form-control">
+                                    <option value="">Select Slot Time3</option>
+                                </select>
+                                <label class="form-label">if the previous time is unavailable for tutors</label>                                
+                                <span asp-validation-for="Input.SlotTime3" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button id="registerSubmit" type="submit" class="btn btn-danger mt-10">Add</button>
+                            <a href="##" onClick="history.go(-1); return false;" class="btn btn-danger mt-10">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_FormScriptsPartial" />
+    <script src="~/js/pages/addSlotRequest.js"></script>
+}

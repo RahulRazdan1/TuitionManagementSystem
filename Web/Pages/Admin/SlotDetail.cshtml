@@ -1,0 +1,93 @@
+﻿@page
+@model Web.Pages.Admin.SlotDetailModel
+@{
+}
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="me-auto">
+            <h4 class="page-title">Slot Detail</h4>
+        </div>
+    </div>
+</div>
+<section class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h4 class="box-title">Slot List</h4>
+                </div>
+                <div class="box-body">
+                    <div class="content-body">
+                        <section id="basic-form-layouts">
+                            <table class="table table-striped table-bordered hover" id="gridSubject">
+                                <thead>
+                                    <tr>
+                                        <th>Tutee</th>
+                                        <th>Subject</th>
+                                        <th>Course</th>
+                                        <th>Topic</th>
+                                        <th>Date</th>
+                                        <th>Slot Time1</th>
+                                        <th>Slot Time2</th>
+                                        <th>Slot Time3</th>
+                                        <th>Tutor</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var form in Model.Input)
+                                    {
+                                        <tr>
+                                            <td>@form.Tutee.Name</td>
+                                            <td>@form.Subject.Name</td>
+                                            <td>@form.Course.Name</td>
+                                            <td>@form.Topic</td>
+                                            <td>@form.Date</td>
+                                            @if (!string.IsNullOrEmpty(@form.AcceptedSlotTime) && @form.AcceptedSlotTime == @form.SlotTime1)
+                                            {
+                                                <td class="acceptedSlot">@form.SlotTime1</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@form.SlotTime1</td>
+                                            }
+                                            @if (!string.IsNullOrEmpty(@form.AcceptedSlotTime) && @form.AcceptedSlotTime == @form.SlotTime2)
+                                            {
+                                                <td class="acceptedSlot">@form.SlotTime2</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@form.SlotTime2</td>
+                                            }
+                                            @if (!string.IsNullOrEmpty(@form.AcceptedSlotTime) && @form.AcceptedSlotTime == @form.SlotTime3)
+                                            {
+                                                <td class="acceptedSlot">@form.SlotTime3</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@form.SlotTime3</td>
+                                            }
+                                            <td>@form.Tutor.Name</td>
+                                            <td>
+                                                <a asp-page="/Admin/Delete" asp-route-id="@form.Id" class="btn btn-danger1">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+    <link rel="stylesheet" type="text/css" href="~/css/jquery.dataTables.min.css" />
+    <script type="text/javascript" src="~/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#gridSubject').DataTable();
+        });
+    </script>    
+}

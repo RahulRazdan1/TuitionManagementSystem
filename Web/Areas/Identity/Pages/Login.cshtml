@@ -1,0 +1,87 @@
+﻿@page
+@using Web.Common;
+@model LoginModel
+
+@{
+    ViewData[AppConstants.TitleKey] = "Log in";
+}
+<div class="col-lg-5 col-md-5 col-6">
+    <div class="bg-white rounded10 shadow-lg">
+        <div class="content-top-agile p-20 pb-0">
+            <p class="mb-0"><h2>Eagle Tutoring</h2></p>
+        </div>
+        <div style="padding-top:80px; padding-left:10px; padding-bottom:160px;">
+            <p>
+                <span style="font-family:Arial,Helvetica,sans-serif">
+                    <span style="font-size:16px"><strong>Welcome</strong></span><br />
+                    Get connected to SAS Honor Society students to help you with any tutoring needs.
+                </span>
+            </p>
+            <hr />
+            <p><span style="font-family:Arial,Helvetica,sans-serif">We cover the following subjects for High School:</span></p>
+            <ul>
+                <li>Mathematics</li>
+                <li><span style="font-family:Arial,Helvetica,sans-serif">Science</span></li>
+                <li><span style="font-family:Arial,Helvetica,sans-serif">Computer Science</span></li>
+                <li><span style="font-family:Arial,Helvetica,sans-serif">Social studies</span></li>
+                <li><span style="font-family:Arial,Helvetica,sans-serif">English</span></li>
+                <li><span style="font-family:Arial,Helvetica,sans-serif">French</span></li>
+                <li><span style="font-family:Arial,Helvetica,sans-serif">Spanish</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-lg-1 col-md-1 col-1">
+</div>
+<div class="col-lg-5 col-md-5 col-6">
+    <div class="bg-white rounded10 shadow-lg">
+        <div class="content-top-agile p-20 pb-0">
+            <a href="/identity/login"> <img id="logo-default" src="/tmsImages/logo.png" /></a><br />
+            <p class="mb-0"><h2>Eagle Tutoring</h2></p>
+            <p class="mb-0">Log In</p>
+        </div>
+        <div class="p-40">
+            <form id="account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-transparent"><i class="ti-user"></i></span>
+                        <input asp-for="Input.Email" class="form-control ps-15 bg-transparent" autocomplete="username" aria-required="true" placeholder="Email" />
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  bg-transparent"><i class="ti-lock"></i></span>
+                        <input asp-for="Input.Password" class="form-control ps-15 bg-transparent" autocomplete="current-password" aria-required="true" placeholder="Password" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button id="login-submit" type="submit" class="btn btn-danger mt-10">Log in</button>
+                    </div>
+                    <div class="col-12">
+                        <div class="fog-pwd text-end">
+                            <a id="forgot-password" class="hover-warning" asp-page="./ForgotPassword"><i class="ion ion-locked"></i> Forgot Password?</a><br>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <p class="mt-15 mb-0">
+                            Don't have an account? &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a asp-page="./Register"> Register yourself</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="text-center">
+        <p class="mt-20 text-white">&copy; 2022 - 23  Eagle Tutoring - by Rahul Razdan</p>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

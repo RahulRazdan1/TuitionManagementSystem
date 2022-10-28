@@ -1,0 +1,48 @@
+﻿@page
+@using Web.Common
+@model RegistrationEmailConfirmationModel
+@{
+    ViewData[AppConstants.TitleKey] = "Registration email confirmation";
+}
+<div class="container h-p100">
+    <div class="row align-items-center justify-content-md-center h-p100">
+        <div class="col-12">
+            <div class="row justify-content-center g-0">
+                <div class="col-lg-5 col-md-5 col-12">
+                    <div class="bg-white rounded10 shadow-lg">
+
+                        <div class="content-top-agile p-20 pb-0">
+                            <a href="/"> <img id="logo-default" src="/tmsImages/logo.png"></a><br><br>
+
+                        </div>
+                        <div class="p-40">
+                            @if (@Model.DisplayConfirmAccountLink)
+                            {
+                                <p>
+                                    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+                                </p>
+                            }
+                            else
+                            {
+                              <h3>Email Confirmation</h3>
+                              <hr />
+                                <p>
+                                    Please check your email to confirm your account.
+                                </p>
+                            }
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="mt-20 text-white">© 2022 - 23  Eagle Tutoring - by Rahul Razdan</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
